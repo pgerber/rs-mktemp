@@ -187,6 +187,7 @@
 <span id="144">144</span>
 <span id="145">145</span>
 <span id="146">146</span>
+<span id="147">147</span>
 </pre><pre class='rust '>
 <span class='comment'>/* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -200,10 +201,11 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! ```</span>
 <span class='doccomment'>//! use mktemp::Temp;</span>
+<span class='doccomment'>//! use std::fs;</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! {</span>
-<span class='doccomment'>//!   let temp_file = Temp::new_file();</span>
-<span class='doccomment'>//!   let file = try!(fs::File::open(temp_file));</span>
+<span class='doccomment'>//!   let temp_file = Temp::new_file().unwrap();</span>
+<span class='doccomment'>//!   assert!(fs::File::open(temp_file).is_ok());</span>
 <span class='doccomment'>//! }</span>
 <span class='doccomment'>//! // temp_file is cleaned from the fs here</span>
 <span class='doccomment'>//! ```</span>
@@ -218,7 +220,7 @@
 <span class='kw'>use</span> <span class='ident'>uuid</span>::<span class='ident'>Uuid</span>;
 
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>TempType</span> {
+<span class='kw'>enum</span> <span class='ident'>TempType</span> {
     <span class='ident'>File</span>,
     <span class='ident'>Dir</span>,
 }

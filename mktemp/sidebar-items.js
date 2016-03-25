@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TempType",""]],"struct":[["Temp",""]]});
+initSidebarItems({"struct":[["Temp",""]]});
